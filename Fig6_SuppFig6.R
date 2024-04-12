@@ -18,7 +18,7 @@ date = format(Sys.Date(), "%Y%m%d")
 path = "/Users/colem/Documents/Projects/Treg_paper/Golden/Data/"
 
 neighb2 = read.csv(paste0(path, "20231002_neighb2.csv"))
-seg_neighb2 = read.csv(paste0(path, "20230904_seg_neighb2.csv"))
+seg_neighb2 = read.csv(paste0(path, "20240412_seg_neighb2.csv"))
 
 out_fig6 = "/Users/colem/Documents/Projects/Treg_paper/Figures/Figure6/"
 dir.create(out_fig6)
@@ -52,8 +52,6 @@ neighb2 = neighb2 %>%
                                ROI_name == "BRAC4002.3c_ROI2_MRTX"~"BRAC4002.3c_t2_MRTX",
                                ROI_name == "BRAC4002.3c_ROI3_MRTX"~"BRAC4002.3c_t3_MRTX",
                                TRUE ~ ROI_name))
-
-seg_neighb2$ROI_short = neighb2$ROI_short[match(seg_neighb2$cellID, neighb2$cellID)]
 
 ################################################################################
 
