@@ -22,13 +22,13 @@ library(tidyr)
 
 date = format(Sys.Date(), "%Y%m%d")
 
-path = "/Users/colem/Documents/Projects/Treg_paper/Golden/Data/"
+path = ""
 
-neighb1 = read.csv(paste0(path, "20231002_neighb1.csv"))
+neighb1 = read.csv(paste0(path, "neighb1.csv"))
 
-out_fig2 = "/Users/colem/Documents/Projects/Treg_paper/Figures/Figure2/"
+out_fig2 = paste0(path, "Figure2/")
 dir.create(out_fig2)
-out_supp2 = "/Users/colem/Documents/Projects/Treg_paper/Figures/Supplementary_Figure2/"
+out_supp2 = paste0(path, "Supplementary_Figure2/")
 dir.create(out_supp2)
 
 colours1 =  c("B cells" = "#945931",  "Dendritic cells" = "#FF9933", "Dendritic cells CD103" = "#FFCC66", "Endothelium" = "#FFEA42",
@@ -40,7 +40,7 @@ treat_col = c("Vehicle" = "#F8766D", "MRTX" = "#00BFC4")
 domain_col = c("Normal" = "#F8766D", "Interface" = "#00BA38", "Tumour" = "#619CFF")
 
 ## Dataset 2
-neighb2 = read.csv(paste0(path, "20231002_neighb2.csv"))
+neighb2 = read.csv(paste0(path, "neighb2.csv"))
 
 ###############################################################################################
 

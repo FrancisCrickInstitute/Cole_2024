@@ -2,7 +2,6 @@
 #### Scripts for Treg paper - Figure 4 & Supplementary figure 4 ####
 
 ## Megan Cole (megan.cole@crick.ac.uk)
-## March 2022 
 
 rm(list=ls())
 
@@ -14,14 +13,14 @@ library(scales)
 
 date = format(Sys.Date(), "%Y%m%d")
 
-path = "/Users/colem/Documents/Projects/Treg_paper/Golden/Data/"
+path = ""
 
-neighb1 = read.csv(paste0(path, "20231002_neighb1.csv"))
-neighb2 = read.csv(paste0(path, "20231002_neighb2.csv"))
+neighb1 = read.csv(paste0(path, "neighb1.csv"))
+neighb2 = read.csv(paste0(path, "neighb2.csv"))
 
-out_fig4 = "/Users/colem/Documents/Projects/Treg_paper/Figures/Figure4/"
+out_fig4 = paste0(path, "Figure4/")
 dir.create(out_fig4)
-out_supp4 = "/Users/colem/Documents/Projects/Treg_paper/Figures/Supplementary_Figure4/"
+out_supp4 = paste0(path, "Supplementary_Figure4/")
 dir.create(out_supp4)
 
 top5 = c("T/NA", "T/M1", "T/DC", "T/M2_1", "T/M2_2", "Other")

@@ -15,24 +15,24 @@ library(neighbouRhood)
 
 date = format(Sys.Date(), "%Y%m%d")
 
-path = "/Users/colem/Documents/Projects/Treg_paper/Golden/Data/"
+path = ""
 
-neighb2 = read.csv(paste0(path, "20231002_neighb2.csv"))
-seg_neighb2 = read.csv(paste0(path, "20240412_seg_neighb2.csv"))
+neighb2 = read.csv(paste0(path, "neighb2.csv"))
+seg_neighb2 = read.csv(paste0(path, "seg_neighb2.csv"))
 
-out_fig6 = "/Users/colem/Documents/Projects/Treg_paper/Figures/Figure6/"
+out_fig6 = paste0(path, "Figure6/")
 dir.create(out_fig6)
-out_supp6 = "/Users/colem/Documents/Projects/Treg_paper/Figures/Supplementary_Figure6/"
+out_supp6 = paste0(path, "Supplementary_Figure6/")
 dir.create(out_supp6)
 
 treg_col = c("Tregs" = "#9590FF", "No Tregs" = "#00C1A3")
 
-files6 = paste0(path, "Figure6/")
+files6 = paste0(path, "Files_Figure6/")
 dir.create(fig6)
 fig6_OT = paste0(files6, "objectTable/")
 dir.create(fig6_OT)
 
-out_stats6 = "/Users/colem/Documents/Projects/Treg_paper/Golden/Data/Figure6/out_stats/"
+out_stats6 = paste0(files6, "out_stats/")
 
 colours2 = c("B cells" = "#945931", "Dendritic cells" = "#FF9933", "Dendritic cells CD103" = "#FFCC66", "Fibroblasts" = "#ABDDA4FF",
              "Leukocytes unclassified" = "#7A9F79", "Macrophages type 1" = "#336666", "Macrophages type 2" = "#4E79A7FF",

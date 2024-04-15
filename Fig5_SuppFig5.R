@@ -24,22 +24,22 @@ date = format(Sys.Date(), "%Y%m%d")
 
 ## Global variables ##
 
-path = "/Users/colem/Documents/Projects/Treg_paper/Golden/Data/"
+path = ""
 
-neighb1 = read.csv(paste0(path, "20231002_neighb1.csv"))
-neighb2 = read.csv(paste0(path, "20231002_neighb2.csv"))
+neighb1 = read.csv(paste0(path, "neighb1.csv"))
+neighb2 = read.csv(paste0(path, "neighb2.csv"))
 
-seg_neighb1 = read.csv(paste0(path, "20230904_seg_neighb1.csv"))
-seg_neighb2 = read.csv(paste0(path, "20240412_seg_neighb2.csv"))
+seg_neighb1 = read.csv(paste0(path, "seg_neighb1.csv"))
+seg_neighb2 = read.csv(paste0(path, "seg_neighb2.csv"))
 
-distance_path = "/Users/colem/Documents/Projects/Treg_paper/Files/Figure5/dataset2_communityC_min_distance/"
-
-file5 = "/Users/colem/Documents/Projects/Treg_paper/Files/Figure5/"
-
-out_fig5 = "/Users/colem/Documents/Projects/Treg_paper/Figures/Figure5/"
+out_fig5 = paste0(path, "Figure5/")
 dir.create(out_fig5)
-out_supp5 = "/Users/colem/Documents/Projects/Treg_paper/Figures/Supplementary_Figure5/"
+out_supp5 = paste0(path, "Supplementary_Figure5/")
 dir.create(out_supp5)
+
+file5 = paste0(path, "Files_Figure5/")
+
+distance_path = paste0(out_fig5, "dataset2_communityC_min_distance/")
 
 top5 = c("T/NA", "T/M1", "T/DC", "T/M2_1", "T/M2_2")
 top5_col = c("T/NA" = "#F8766D", "T/M1" = "#FCBF49", "T/DC" = "#00BF7D", "T/M2_1" = "#00B0F6", "T/M2_2" = "#E76BF3", "Other" = "#E1E1E1")

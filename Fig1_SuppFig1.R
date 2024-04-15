@@ -20,21 +20,21 @@ library(reshape2)
 
 date = format(Sys.Date(), "%Y%m%d")
 
-path = "/Users/colem/Documents/Projects/Treg_paper/Files/"
+path = ""
 
-out_fig1 = "/Users/colem/Documents/Projects/Treg_paper/Figures/Figure1/"
+out_fig1 = paste0(path, "Figure1/")
 dir.create(out_dir)
-out_supp1 = "/Users/colem/Documents/Projects/Treg_paper/Figures/Supplementary_Figure1/"
+out_supp1 = paste0(path, "Supplementary_Figure1/")
 dir.create(out_supp)
 
 treat_col = c("MRTX" = "#00BFC4", "Vehicle" = "#F8766D")
 
 #### Dataset 1 setup ####
-data1 = read.csv(paste0(path, "20230904_dataset1_celldata.csv"))
+data1 = read.csv(paste0(path, "dataset1_celldata.csv"))
 
-neighb1 = read.csv(paste0(path, "20220823_dataset1_neighb_62communities_agglom18.csv"))
+neighb1 = read.csv(paste0(path, "neighb1.csv"))
 
-agglom30 = read.csv(paste0(path, "Figure1/20220216_dataset1_average_neighbours_62clusters_agglom30.csv"))
+agglom30 = read.csv(paste0(out_fig1, "20220216_dataset1_average_neighbours_62clusters_agglom30.csv"))
 
 colours1 =  c("B cells" = "#945931",  "Dendritic cells" = "#FF9933", "Dendritic cells CD103" = "#FFCC66", "Endothelium" = "#FFEA42",
               "Epithelium" = "#FFF4A4FF", "Fibroblasts" = "#ABDDA4FF", "Macrophages other" = "#618F75FF", "Macrophages type 1" = "#336666",
@@ -42,7 +42,7 @@ colours1 =  c("B cells" = "#945931",  "Dendritic cells" = "#FF9933", "Dendritic 
               "T cells CD8" = "#FF9D9AFF", "T reg cells" = "#CC6666", "Tumour" = "#704850FF", "Unclassified" = "#8C8C8C")
 
 #### Dataset 2 setup ####
-neighb2 = read.csv(paste0(path, "20220823_dataset2_neighb_254communities_agglom18.csv"))
+neighb2 = read.csv(paste0(path, "neighb2.csv"))
 
 colours2 = c("B cells" = "#945931", "Dendritic cells" = "#FF9933", "Dendritic cells CD103" = "#FFCC66", "Fibroblasts" = "#ABDDA4FF",
              "Leukocytes unclassified" = "#7A9F79", "Macrophages type 1" = "#336666", "Macrophages type 2" = "#4E79A7FF",
@@ -267,7 +267,7 @@ ggsave(plot = p, device = "png", width=14, height=10, dpi=300, path = out_fig1,
 #### Figure 1c ####
 
 # tSNE of clustering results with altered k-value - illustrating the reproducibility and stability of clusters
-k350 = read.csv(paste0(path, "Figure1/20220216_dataset1_k350_neighbour_clustering_40communities.csv"))
+k350 = read.csv(paste0(out_fig1, "20220216_dataset1_k350_neighbour_clustering_40communities.csv"))
 
 avg_neighb1 = neighb1 %>% 
   select(3:19) %>% 
@@ -411,10 +411,10 @@ stacked_bar(neighb2, out_supp1, paste0(date, "_dataset2_stacked_bar_18communitie
 
 # Similarity of neighbour clustering results for overlapping cell types in dataset 1 & dataset 2 - tSNE
 
-overlap1_avg = read.csv(paste0(path, "Figure1/20220421_dataset1_overlapping_cellTypes_average_neighbours_18clusters.csv"))
+overlap1_avg = read.csv(paste0(out_fig1, "20220421_dataset1_overlapping_cellTypes_average_neighbours_18clusters.csv"))
 overlap1_avg$dtype = "Dataset 1"
 
-overlap2_avg = read.csv(paste0(path, "Figure1/20220421_dataset2_overlapping_cellTypes_average_neighbours_18clusters.csv"))
+overlap2_avg = read.csv(paste0(out_fig1, "20220421_dataset2_overlapping_cellTypes_average_neighbours_18clusters.csv"))
 overlap2_avg$dtype = "Dataset 2"
 
 avg18 = rbind(overlap1_avg, overlap2_avg)
@@ -439,7 +439,7 @@ p
 ggsave(plot = p, device = "png", width=7, height=6, dpi=300, path = out_supp1,
        filename = paste(date, "_tSNE_dataset1_dataset2_overlapping_cellTypes_community_comparison.png", sep = ""))
 # Save avg18
-write.csv(avg18, paste0(path, "Figure1/", date, "_dataset1_dataset2_overlapping_cellTypes_community_agglom30_average_PCA_tSNE.csv"), row.names = F)
+write.csv(avg18, paste0(out_fig1, "/", date, "_dataset1_dataset2_overlapping_cellTypes_community_agglom30_average_PCA_tSNE.csv"), row.names = F)
 
 
 
